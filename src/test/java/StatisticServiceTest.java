@@ -5,7 +5,7 @@ class StatisticServiceTest {
     @Test
     public void testSum() {
         StatisticService service = new StatisticService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         long actual = service.sum(sales);
         long expected = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
@@ -16,7 +16,7 @@ class StatisticServiceTest {
     @Test
     public void testAverage() {
         StatisticService service = new StatisticService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         long actual = service.average(sales);
         long expected = (8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18) / 12;
@@ -27,7 +27,7 @@ class StatisticServiceTest {
     @Test
     public void testBellowAverage() {
         StatisticService service = new StatisticService();
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int actual = service.bellowMonths(sales);
         long expected = 5;
@@ -43,6 +43,26 @@ class StatisticServiceTest {
         int actual = service.maximum(sales);
         long expected = 11;
 
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void MinMonth() {
+        StatisticService service = new StatisticService();
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expected = 9;
+        int actual = service.MinMonth(sales);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void UpperMonths() {
+        StatisticService service = new StatisticService();
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 5;
+
+        int actual = service.UpperMonths(sales);
         Assertions.assertEquals(expected, actual);
     }
 }
